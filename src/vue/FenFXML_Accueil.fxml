@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ComboBox fx:id="cbxSport" layoutX="130.0" layoutY="14.0" prefWidth="150.0" promptText="Choisir" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="130.0" />
+      <Label layoutX="102.0" layoutY="18.0" text="Sport pour réservation:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="30.0" text="Association:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbxAssos" layoutX="220.0" layoutY="29.0" prefWidth="150.0" promptText="Choisir" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="30.0" />
+      <Label layoutX="34.0" layoutY="204.0" maxHeight="22.0" text="Date de réservation:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="230.0">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="timepckDate" layoutX="220.0" layoutY="229.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="230.0" />
+      <Button fx:id="btnHeure" layoutX="30.0" layoutY="309.0" maxWidth="215.0" minWidth="215.0" mnemonicParsing="false" text="Choisir une heure" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnConfirm" layoutX="217.0" layoutY="330.0" maxWidth="215.0" minWidth="215.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Confirmer la réservation" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="330.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
