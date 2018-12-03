@@ -5,12 +5,13 @@
  */
 package controleur;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /**
@@ -19,32 +20,28 @@ import javafx.stage.Stage;
  */
 public class MainApp extends Application
 {
-    
+    private Stage primaryStage;
+    private AnchorPane rootLayout;
     @Override
-    public void start(Stage primaryStage)
+    public void start(Stage primaryStage) throws IOException
     {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>()
+        this.primaryStage=primaryStage;
+        this.primaryStage.setTitle("Réservations gymnase");
+        try
         {
-            
-            @Override
-            public void handle(ActionEvent event)
-            {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            this.primaryStage.setTitle("Gestion des réservations");
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/vue/FenFXML_Accueil.fxml"));
+            AnchorPane rootLayout = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Erreur chargement fenetre principale : " + e.getMessage());
+        }
     }
-
+    
     /**
      * @param args the command line arguments
      */
