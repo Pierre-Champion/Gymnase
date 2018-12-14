@@ -29,6 +29,9 @@ public class FenFXML_Accueil_Controleur implements Initializable
 
     @FXML private ComboBox cbxAssoc;
     @FXML private ComboBox cbxSport;
+    @FXML private ComboBox cbxSalle;
+    @FXML private ComboBox cbxHeure;
+    
     @FXML private DatePicker timepckDate;
     private ObservableList<Association> lesAssoc;
     private ObservableList<Sport> lesSports;

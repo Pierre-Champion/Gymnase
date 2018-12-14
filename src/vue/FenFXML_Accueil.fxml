@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,33 +10,59 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controleur.FenFXML_Accueil_Controleur">
    <children>
-      <ComboBox fx:id="cbxSport" layoutX="130.0" layoutY="14.0" prefWidth="150.0" promptText="Choisir" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="130.0" />
-      <Label layoutX="102.0" layoutY="18.0" text="Sport pour réservation:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="130.0">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="30.0" layoutY="30.0" text="Association:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cbxAssoc" layoutX="220.0" layoutY="29.0" onAction="#loadSport" prefWidth="150.0" promptText="Choisir" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="30.0" />
-      <Label layoutX="34.0" layoutY="204.0" maxHeight="22.0" text="Date de réservation:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="230.0">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="timepckDate" layoutX="220.0" layoutY="229.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="230.0" />
-      <Button fx:id="btnHeure" layoutX="30.0" layoutY="309.0" maxWidth="215.0" minWidth="215.0" mnemonicParsing="false" text="Choisir une heure" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnConfirm" layoutX="217.0" layoutY="330.0" maxWidth="215.0" minWidth="215.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Confirmer la réservation" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="330.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      <GridPane prefHeight="399.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Association:">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbxAssoc" onAction="#loadSport" prefWidth="150.0" promptText="Choisir" GridPane.columnIndex="1" />
+            <ComboBox fx:id="cbxSport" prefWidth="150.0" promptText="Choisir" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Sport pour réservation:" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label maxHeight="22.0" text="Date de réservation:" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="timepckDate" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btnConfirm" maxWidth="215.0" minWidth="215.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Confirmer la réservation" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label text="Heure:" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox prefWidth="150.0" promptText="Choisir" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Salle:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox prefWidth="150.0" promptText="Choisir" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </GridPane>
    </children>
 </AnchorPane>
