@@ -6,7 +6,6 @@
 package modele;
 
 import java.sql.*;
-import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -88,4 +87,41 @@ public class GestionBDD
         }
         return lesSalles;
     }
+    
+    public static ObservableList<Reservation> getLesReservations(String refSalle, Date date) throws SQLException
+    {
+        ObservableList<Reservation> lesReservations = FXCollections.observableArrayList();
+        lesReservations.add(new Reservation(date, new Time(8,0,0)));
+        lesReservations.add(new Reservation(date, new Time(9,0,0)));
+        lesReservations.add(new Reservation(date, new Time(10,0,0)));
+        lesReservations.add(new Reservation(date, new Time(11,0,0)));
+        lesReservations.add(new Reservation(date, new Time(13,0,0)));
+        lesReservations.add(new Reservation(date, new Time(14,0,0)));
+        lesReservations.add(new Reservation(date, new Time(15,0,0)));
+        lesReservations.add(new Reservation(date, new Time(16,0,0)));
+        lesReservations.add(new Reservation(date, new Time(17,0,0)));
+        String req = "SELECT heure FROM reservation WHERE refSalle = '" + refSalle + "' AND date = '" + date + "'";
+        try
+        {
+            ResultSet rs = GestionBdd.envoiRequeteLMD(stmt,req);
+            while(rs.next())
+            {
+                for(Reservation tempRes:lesReservations)
+                {
+                    if(tempRes.getHeure()==rs.getTime("heure"))
+                        tempRes.Reserver();
+                }
+            }
+        }
+        catch (SQLException sqle)
+        {
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("ERREUR SQL");
+            alert.setHeaderText("ERREUR SQL");
+            alert.setContentText(sqle.getMessage());
+            alert.showAndWait();
+        }
+        return lesReservations;
+    }
+    
 }

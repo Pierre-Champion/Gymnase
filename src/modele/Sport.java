@@ -11,7 +11,7 @@ package modele;
  */
 public class Sport
 {
-    String nomSport;
+    private String nomSport;
 
     public String getNomSport()
     {

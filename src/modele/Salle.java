@@ -10,9 +10,9 @@ package modele;
  * @author Rabelais
  */
 public class Salle {
-    String refSalle;
-    float surface;
-    String typeRevetement;
+    private String refSalle;
+    private float surface;
+    private String typeRevetement;
 
     public Salle(String refSalle, float surface, String typeRevetement) {
         this.refSalle = refSalle;

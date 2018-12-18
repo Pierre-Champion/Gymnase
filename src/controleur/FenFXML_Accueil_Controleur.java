@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import modele.Association;
 import modele.GestionBDD;
+import modele.Reservation;
 import modele.Sport;
 
 /**
@@ -32,6 +34,9 @@ public class FenFXML_Accueil_Controleur implements Initializable
     @FXML private ComboBox cbxSalle;
     @FXML private ComboBox cbxHeure;
     @FXML private DatePicker timepckDate;
+    
+    ObservableList<Reservation> lesReservations = FXCollections.observableArrayList();
+    
     /**
      * Initialises the controller class.
      */
@@ -111,4 +116,32 @@ public class FenFXML_Accueil_Controleur implements Initializable
         timepckDate.setDisable(false);
         cbxHeure.setDisable(true);
     }
+    
+    @FXML
+    public void loadReservation()
+    {
+        cbxHeure.setDisable(false);
+        try
+        {
+            if(null!=cbxSport.getSelectionModel().getSelectedItem())
+            {
+                cbxSalle.setItems(GestionBDD.getLesSalles(cbxSport.getSelectionModel().getSelectedItem().toString()));
+            }
+            if(!cbxSalle.getItems().isEmpty())
+                cbxSalle.setDisable(false);
+            else
+                cbxSalle.setDisable(true);
+        } catch (SQLException sqle)
+        {
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("ERREUR SQL");
+            alert.setHeaderText("ERREUR SQL");
+            alert.setContentText(sqle.getMessage());
+            alert.showAndWait();
+        } catch (NullPointerException npe)
+        {
+        }
+    }
+    
+    
 }
